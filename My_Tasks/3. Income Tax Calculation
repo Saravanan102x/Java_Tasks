@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Incometax {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter Your Income:");
+        int income=sc.nextInt();
+        double tax=0;
+        if(income<=250000){
+            System.out.println("NO TAX");
+        }else if(income>=250001 || income <=500000){
+            tax=income*0.05;
+        }else if(income>=500001 || income <=1000001){
+            tax=income*0.20;
+        }else{
+            tax=income*0.30;
+        }
+        sc.close();
+        System.out.println("Total Tax:"+ tax);
+
+    }
+}
