@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class Atm {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        int balance=0;
+        int password=1234;
+        System.out.print("Enter the Password: ");
+        int entered_pin= sc.nextInt();
+        if(entered_pin==password){
+            System.out.println("Access Granted");
+            while (true){
+                System.out.println("Enter the choice: ");
+                System.out.println("1.Deposit Amount");
+                System.out.println("2.Check Balance");
+                System.out.println("3.Withdraw Amount");
+                System.out.println("4.Exit");
+                int choice=sc.nextInt();
+                if(choice==1){
+                    System.out.print("500x");
+                    int n500=sc.nextInt();
+                    System.out.print("200x");
+                    int n200=sc.nextInt();
+                    System.out.print("100x");
+                    int n100=sc.nextInt();
+
+                    int amount=(n500 * 500)+(n200 * 200)+(n100 * 100);
+                    balance= balance+amount;
+                    System.out.println("Amount Deposited: " + amount);
+                }else if (choice==2){
+                    System.out.println("Current Balance: " + balance);
+                }else if (choice==3) {
+                    System.out.println("Enter withdraw amount: ");
+                    int withdraw=sc.nextInt();
+                    if(withdraw<=balance){
+                        balance=balance-withdraw;
+                        System.out.println("withdraw: "+withdraw);
+                    }else {
+                        System.out.println("Insufficient balance");
+                    }
+                }else if(choice ==4) {
+                    System.out.println("Thank you for using ATM!");
+                    break;
+
+                }else {
+                    System.out.println("Invalid Option");
+                }
+            }
+        }else {
+            System.out.println("Access Denied");
+        }
+        sc.close();
+    }
+}
