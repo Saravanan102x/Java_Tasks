@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Palindrome_numbers {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int n = sc.nextInt();
+
+        if (n < 0) {                 // negatives are not palindromes
+            System.out.println("Not a palindrome");
+            sc.close();
+            return;
+        }
+
+        int original = n;
+        int rev = 0;
+
+        // build reverse of the number digit by digit
+        while (n != 0) {
+            int d = n % 10;          // last digit
+            rev = rev * 10 + d;      // append digit
+            n = n / 10;              // drop last digit
+        }
+
+        if (rev == original) {
+            System.out.println("Palindrome");
+        }else {
+            System.out.println("Not a palindrome");
+        }
+
+        sc.close();
+    }
+}
+
+
+/*
+✅ Time Complexity = O(log n)
+✅ Space Complexity = O(1)
+ */
