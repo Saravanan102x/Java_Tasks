@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class pal_str_twopointer {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter the String: ");
+        String s=sc.nextLine();
+
+        int i = 0;
+        int j = s.length() - 1;
+        boolean isPal = true;
+
+        while(i < j){
+            if(s.charAt(i) != s.charAt(j)){
+                isPal = false;
+                break;
+            }
+            i++;
+            j--;
+        }
+
+        if(isPal){
+            System.out.println("The string is palindrome");
+        } else {
+            System.out.println("Not a palindrome");
+        }
+
+        sc.close();
+    }
+}
+
+
+/*Complexity:
+
+Time: O(n) (each char compared once)
+Space: O(1) (no new string created, only pointers)*/
