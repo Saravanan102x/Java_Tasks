@@ -14,7 +14,3 @@ public class Reverse_a_string {
 }
 
 
-Complexity:
-
-Time: O(n²) (because of repeated string concatenation)
-Space: O(n) (extra reversed string)
