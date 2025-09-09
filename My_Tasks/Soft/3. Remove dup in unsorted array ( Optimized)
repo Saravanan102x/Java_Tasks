@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class RemoveDuplicatesInPlace {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Step 1: Get input size
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        // Step 2: Get array elements
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // Step 3: Sort array (Bubble Sort)
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+
+        // Step 4: Remove duplicates in-place
+        int uniqueIndex = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (arr[i] != arr[i + 1]) {
+                arr[uniqueIndex] = arr[i];
+                uniqueIndex++;
+            }
+        }
+        arr[uniqueIndex] = arr[n - 1];
+        uniqueIndex++;
+
+        // Step 5: Print length and array after removing duplicates
+        System.out.println("Length after removing duplicates: " + uniqueIndex);
+
+        System.out.print("Array after removing duplicates: ");
+        for (int i = 0; i < uniqueIndex; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+}
+
+
+Enter number of elements: 9
+Enter 9 elements:
+3 4 4 5 5 5 1 1 2
+Length after removing duplicates: 5
+Array after removing duplicates: 1 2 3 4 5
+
+
+
+✅ Complexity Now
+
+Time Complexity: O(n²) (because Bubble Sort)
+
+Space Complexity: O(1) (no extra array, in-place removal)
