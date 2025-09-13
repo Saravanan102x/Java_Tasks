@@ -1,0 +1,71 @@
+Generates Fibonacci numbers starting from 2 up to 100.
+Checks if each Fibonacci number is prime.
+Adds the prime Fibonacci numbers.
+Prints "YES" if the sum reaches or exceeds 50, otherwise prints "NO".
+
+code:
+
+public class fiboprimesum {
+    public static void main(String[] args) {
+        int a=0, b=1, sum=0;
+        while(true){
+            int fib=a+b;
+            if(fib>100) break;
+            a=b;
+            b=fib;
+
+            int count=0;
+            for(int i=1;i<=fib;i++){
+                if(fib%i==0) count++;
+            }
+            if(fib>=2 && count==2){
+                sum=sum+fib;
+            }
+        }
+        if(sum>=50){
+            System.out.print("YES");
+        }else{
+            System.out.print("NO");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
